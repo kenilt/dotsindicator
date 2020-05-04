@@ -284,10 +284,9 @@ abstract class BaseDotsIndicator @JvmOverloads constructor(context: Context,
   // EXTENSIONS
 
   fun View.setWidth(width: Int) {
-    layoutParams.apply {
-      this.width = width
-      requestLayout()
-    }
+    val layoutParams = this.layoutParams
+    layoutParams.width = width
+    this.layoutParams = layoutParams
   }
 
   fun <T> ArrayList<T>.isInBounds(index: Int) = index in 0 until size
